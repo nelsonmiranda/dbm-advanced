@@ -19,9 +19,11 @@ public class CourseCommandLine implements CommandLineRunner{
 	
 	@Override
 	public void run(String... args) throws Exception {
-		logger.info("Course 1001 -> {}", courseReposity.findById(1001L));
-		courseReposity.deleteById(1002L);
-		logger.info("Creating -> {}", courseReposity.save(new Course("Microservices in 100 steps")));
+//		logger.info("Course 1001 -> {}", courseReposity.findById(1001L));
+//		courseReposity.deleteById(1002L);
+//		logger.info("Creating -> {}", courseReposity.save(new Course("Microservices in 100 steps")));
+		courseReposity.playWithEntityManager4();
+		
 	}
 
 }

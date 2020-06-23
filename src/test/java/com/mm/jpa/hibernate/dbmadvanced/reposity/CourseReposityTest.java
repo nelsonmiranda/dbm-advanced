@@ -24,7 +24,6 @@ class CourseReposityTest {
 	void findById() {
 		Course course = courseReposity.findById(1001L);
 		assertEquals("JPA in 10 Steps", course.getName());
-		logger.info("Testing 'findById' method");
 	}
 
 	@Test
@@ -32,7 +31,6 @@ class CourseReposityTest {
 	void deleteById() {
 		courseReposity.deleteById(1001L);
 		assertNull(courseReposity.findById(1001L));;
-		logger.info("Testing 'deleteById' method");
 	}
 	
 	
@@ -45,4 +43,10 @@ class CourseReposityTest {
 		Course courseUpdate = courseReposity.findById(1001L);
 		assertEquals("JPA in 10 Steps - Updated", courseUpdate.getName());
 	}
+	
+	@Test
+	void playWithEntityManager() {
+		courseReposity.playWithEntityManager1();
+	}
+	
 }
