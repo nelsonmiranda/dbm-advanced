@@ -1,8 +1,14 @@
 package com.mm.jpa.hibernate.dbmadvanced.entity;
 
+import java.time.LocalDateTime;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 @Entity
 public class Course {
@@ -12,6 +18,12 @@ public class Course {
 	private Long id;
 	
 	private String name;
+
+	@UpdateTimestamp
+	private LocalDateTime lastUpdatedDate;
+	
+	@CreationTimestamp
+	private LocalDateTime createdDate;
 	
 	public Course() {
 		
