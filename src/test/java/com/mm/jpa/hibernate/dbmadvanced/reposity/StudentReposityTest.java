@@ -11,6 +11,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.mm.jpa.hibernate.dbmadvanced.DbmAdvancedApplication;
+import com.mm.jpa.hibernate.dbmadvanced.entity.Passport;
 import com.mm.jpa.hibernate.dbmadvanced.entity.Student;
 
 @SpringBootTest(classes = DbmAdvancedApplication.class)
@@ -36,10 +37,18 @@ class StudentReposityTest {
 	
 	@Test
 	@Transactional
-	void findById() {
+	void retrieveStudentAndAssociation() {
 		Student student = em.find(Student.class, 20001L);
 		logger.info("Student ->{}", student);
 		logger.info("Passport-{}", student.getPassport());
+	}
+	
+	@Test
+	@Transactional
+	void retrievePassportAndAssociation() {
+		Passport passport = em.find(Passport.class, 40001L);
+		logger.info("Passport ->{}", passport);
+//		logger.info("Student ->{}", passport.getStudent());
 	}
 	
 	
