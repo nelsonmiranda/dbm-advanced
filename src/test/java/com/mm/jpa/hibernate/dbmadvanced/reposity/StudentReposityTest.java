@@ -30,6 +30,11 @@ class StudentReposityTest {
 	}
 	
 	@Test
+	void someOperation() {
+		studentReposity.someOperationToUnderstandPersistenceContext();
+	}
+	
+	@Test
 	@Transactional
 	void findById() {
 		Student student = em.find(Student.class, 20001L);

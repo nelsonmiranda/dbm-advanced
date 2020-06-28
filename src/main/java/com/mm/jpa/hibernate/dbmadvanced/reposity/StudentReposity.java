@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.mm.jpa.hibernate.dbmadvanced.entity.Passport;
 import com.mm.jpa.hibernate.dbmadvanced.entity.Student;
 
 @Repository
@@ -94,6 +95,22 @@ public class StudentReposity {
 		
 		em.refresh(student1);
 		em.flush();
+	}
+	
+	public void someOperationToUnderstandPersistenceContext() {
+		Student student = em.find(Student.class, 20001L);
+		//PersistenceContext (student)
+		
+		Passport passport = student.getPassport();
+		//PersistenceContext (student, passport)
+		
+		passport.setNumber("E123456-Updated");
+		//PersistenceContext (student, passport++)
+		
+		student.setName("Ranga-Updated");
+		//PersistenceContext (student++, passport++)
+		
+		//When something is wrong there is an automatic rollback
 	}
 }
 
