@@ -23,6 +23,7 @@ public class CourseCommandLine implements CommandLineRunner{
 //		courseReposity.deleteById(1002L);
 //		logger.info("Creating -> {}", courseReposity.save(new Course("Microservices in 100 steps")));
 //		courseReposity.playWithEntityManager4();
+		courseReposity.addReviewsForCourse();
 		
 	}
 

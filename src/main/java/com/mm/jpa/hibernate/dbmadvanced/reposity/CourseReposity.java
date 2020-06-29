@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.mm.jpa.hibernate.dbmadvanced.entity.Course;
+import com.mm.jpa.hibernate.dbmadvanced.entity.Review;
 
 @Repository
 @Transactional
@@ -94,6 +95,23 @@ public class CourseReposity {
 		
 		em.refresh(course1);
 		em.flush();
+	}
+
+	public void addReviewsForCourse() {
+		
+		Course course = findById(10003L);
+		
+		Review review1 = new Review("5", "Great Hands-on Stuff");
+		Review review2 = new Review("5", "Hatsoff");
+		
+		course.addReview(review1);
+		review1.setCourse(course);
+		
+		course.addReview(review2);
+		review2.setCourse(course);
+		
+		em.persist(review1);
+		em.persist(review2);
 	}
 }
 
