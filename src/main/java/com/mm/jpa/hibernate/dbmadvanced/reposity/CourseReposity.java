@@ -1,5 +1,7 @@
 package com.mm.jpa.hibernate.dbmadvanced.reposity;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 
 import org.slf4j.Logger;
@@ -97,7 +99,7 @@ public class CourseReposity {
 		em.flush();
 	}
 
-	public void addReviewsForCourse() {
+	public void addHardcodeReviewsForCourse() {
 		
 		Course course = findById(10003L);
 		
@@ -113,5 +115,17 @@ public class CourseReposity {
 		em.persist(review1);
 		em.persist(review2);
 	}
+	
+	public void addReviewsForCourse(long courseId, List<Review> reviews	) {
+		
+		Course course = findById(courseId);
+		
+		for(Review review: reviews) {	
+			course.addReview(review);
+			review.setCourse(course);
+			em.persist(review);
+		}
+	}
+	
 }
 
