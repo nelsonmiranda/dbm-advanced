@@ -15,7 +15,7 @@ public class Student {
 
 	private String name;
 
-	@OneToOne(optional = false, fetch = FetchType.LAZY)
+	@OneToOne(fetch = FetchType.LAZY)
 	private Passport passport;
 
 	public Student() {
