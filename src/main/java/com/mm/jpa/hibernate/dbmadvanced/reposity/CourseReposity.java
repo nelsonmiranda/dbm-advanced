@@ -12,6 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.mm.jpa.hibernate.dbmadvanced.entity.Course;
 import com.mm.jpa.hibernate.dbmadvanced.entity.Review;
+import com.mm.jpa.hibernate.dbmadvanced.entity.Student;
 
 @Repository
 @Transactional
@@ -125,6 +126,28 @@ public class CourseReposity {
 			review.setCourse(course);
 			em.persist(review);
 		}
+	}
+	
+	public void addHardcodeStudentAndCourse() {
+		
+		Student student = new Student("Jack");
+		Course course = new Course("Microservices in 100 steps");
+		
+		em.persist(student);
+		em.persist(course);
+		
+		course.addStudent(student);
+		student.addCourse(course);
+		
+		em.persist(student);
+	}
+	
+	public void addStudentAndCourse(Student student, Course course) {
+		course.addStudent(student);
+		student.addCourse(course);
+		
+		em.persist(student);
+		em.persist(course);
 	}
 	
 }
