@@ -15,6 +15,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.mm.jpa.hibernate.dbmadvanced.DbmAdvancedApplication;
 import com.mm.jpa.hibernate.dbmadvanced.entity.Course;
 import com.mm.jpa.hibernate.dbmadvanced.entity.Review;
+import com.mm.jpa.hibernate.dbmadvanced.entity.Student;
 
 @SpringBootTest(classes = DbmAdvancedApplication.class)
 class CourseReposityTest {
@@ -69,4 +70,19 @@ class CourseReposityTest {
 		logger.info("Course for Review  ->{}", review.getCourse());
 	}
 	
+	@Test
+	@Transactional
+	void retrieveStudentAndCourse() {
+		Student student = em.find(Student.class, 20001L);
+		logger.info("Student ->{}", student);
+		logger.info("Courses ->{}", student.getCourses());
+	}
+	
+	@Test
+	@Transactional
+	void retrieveCourseAndStudent() {
+		Course course= em.find(Course.class, 10001L);
+		logger.info("Course ->{}", course);
+		logger.info("Students ->{}", course.getStudents());
+	}
 }
