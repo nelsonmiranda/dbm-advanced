@@ -44,11 +44,11 @@ class StudentReposityTest {
 	}
 	
 	@Test
-	@Transactional
+//	@Transactional
 	void retrievePassportAndAssociation() {
 		Passport passport = em.find(Passport.class, 40001L);
 		logger.info("Passport ->{}", passport);
-//		logger.info("Student ->{}", passport.getStudent());
+		logger.info("Student ->{}", passport.getStudent());
 	}
 	
 	

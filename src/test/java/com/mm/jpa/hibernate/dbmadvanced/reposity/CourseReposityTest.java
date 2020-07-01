@@ -60,7 +60,9 @@ class CourseReposityTest {
 	@Test
 	@Transactional
 	void retrieveReviewsForCourse() {
-		Course course = courseReposity.findById(10001L);
+		Course course= em.find(Course.class, 10001L);
+//		Course course = courseReposity.findById(10001L);
+		logger.info("Course ->{}", course);
 		logger.info("Review for Course  ->{}", course.getReviews());
 	}
 	
