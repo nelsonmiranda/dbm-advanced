@@ -43,11 +43,11 @@ public class CourseCommandLine implements CommandLineRunner{
 		
 //		courseReposity.addStudentAndCourse( new Student("Jack"), new Course("Microservices in 100 steps"));
 	
-		employeeReposity.insert(new PartTimeEmployee("Jill", new BigDecimal("50")));
-		employeeReposity.insert(new FullTimeEmployee("Jack", new BigDecimal("10000")));
-//		logger.info("Employees -> {}", employeeReposity.retrieveAllEmployees());
-		logger.info("Part Time Employees -> {}", employeeReposity.retrieveAllPartTimeEmployees());
-		logger.info("Full Time Employees -> {}", employeeReposity.retrieveAllFullTimeEmployees());
+//		employeeReposity.insert(new PartTimeEmployee("Jill", new BigDecimal("50")));
+//		employeeReposity.insert(new FullTimeEmployee("Jack", new BigDecimal("10000")));
+////		logger.info("Employees -> {}", employeeReposity.retrieveAllEmployees());
+//		logger.info("Part Time Employees -> {}", employeeReposity.retrieveAllPartTimeEmployees());
+//		logger.info("Full Time Employees -> {}", employeeReposity.retrieveAllFullTimeEmployees());
 	}
 
 }
