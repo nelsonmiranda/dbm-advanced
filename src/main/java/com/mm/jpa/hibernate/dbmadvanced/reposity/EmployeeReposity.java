@@ -11,6 +11,8 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.mm.jpa.hibernate.dbmadvanced.entity.Employee;
+import com.mm.jpa.hibernate.dbmadvanced.entity.FullTimeEmployee;
+import com.mm.jpa.hibernate.dbmadvanced.entity.PartTimeEmployee;
 
 @Repository
 @Transactional
@@ -25,8 +27,16 @@ public class EmployeeReposity {
 		em.persist(employee);
 	}
 	
-	public List<Employee> retrieveAllEmployees(){
-		return em.createQuery("select e from Employee e", Employee.class).getResultList();
+//	public List<Employee> retrieveAllEmployees(){
+//		return em.createQuery("select e from Employee e", Employee.class).getResultList();
+//	}
+	
+	public List<PartTimeEmployee> retrieveAllPartTimeEmployees(){
+		return em.createQuery("select e from PartTimeEmployee e", PartTimeEmployee.class).getResultList();
+	}
+	
+	public List<FullTimeEmployee> retrieveAllFullTimeEmployees(){
+		return em.createQuery("select e from FullTimeEmployee e", FullTimeEmployee.class).getResultList();
 	}
 }
 

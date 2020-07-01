@@ -45,7 +45,9 @@ public class CourseCommandLine implements CommandLineRunner{
 	
 		employeeReposity.insert(new PartTimeEmployee("Jill", new BigDecimal("50")));
 		employeeReposity.insert(new FullTimeEmployee("Jack", new BigDecimal("10000")));
-		logger.info("Employees -> {}", employeeReposity.retrieveAllEmployees());
+//		logger.info("Employees -> {}", employeeReposity.retrieveAllEmployees());
+		logger.info("Part Time Employees -> {}", employeeReposity.retrieveAllPartTimeEmployees());
+		logger.info("Full Time Employees -> {}", employeeReposity.retrieveAllFullTimeEmployees());
 	}
 
 }
