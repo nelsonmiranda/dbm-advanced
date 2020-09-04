@@ -35,3 +35,5 @@ values(20003, 10001);
 insert into student_course(student_id, course_id) 
 values(20001, 10003);
 
+insert into card(id, name, title, email) 
+values(10001, 'Nelson Miranda', 'Computer Systems Ingineer', 'nelsonmiranda8421@gmail.com');
